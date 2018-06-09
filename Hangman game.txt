@@ -1,0 +1,130 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void hang(int);
+void game(char a[],char b[])
+{
+int i,j;
+char d;
+printf("%s",b);
+for(i=0;strcmp(a,b)!=0;i++)
+{
+ int w=0;
+ printf("enter a letter\n");
+ scanf(" %c",&d);
+ for(j=0;j<5;j++)
+ {
+ if(d==a[j])
+ {
+ b[j]=d;
+ w=1;
+ }
+ }
+ if(w==0)
+ {
+ static int n=0;
+ hang(n);
+ n++;
+ printf("that letter was incorrect\n");
+ if(n==6)
+ {
+ printf("you lost");
+ break;
+ }
+ }
+ else
+ printf("the letter is correct\n");
+ if(strcmp(a,b)!=0)
+ {
+ printf("%s",b);
+ printf("enter next letter\n");
+ }
+ }
+ }
+void hang(int i)
+{
+ switch(i)
+{
+case 0:
+printf("_______\n");
+printf("|/   |  \n");
+printf("|    o \n");
+printf("|\n");
+printf("|\n");
+printf("|\n");
+printf("_|_____\n\n");
+break;
+case 1:
+printf(" _______\n");
+printf(" |/   |  \n");
+printf(" |    o   \n");
+printf(" |    |\n");
+printf(" |    |\n");
+printf(" |\n");
+printf("_|__________\n\n");
+break;
+case 2:
+printf(" _______\n");
+printf(" |/   | \n");
+printf(" |    o \n");
+printf(" |   \\|\n");
+printf(" |    | \n");
+printf(" |\n");
+printf("_|__________\n\n");
+break;
+case 3:
+printf(" _______\n");
+printf(" |/   | \n");
+printf(" |    o \n");
+printf(" |   \\|/\n");
+printf(" |    | \n");
+printf(" |\n");
+printf("_|_________\n\n");
+break;
+case 4:
+printf(" _______\n");
+printf(" |/   | \n");
+printf(" |    o \n");
+printf(" |   \\|/\n");
+printf(" |    | \n");
+printf(" |   /\n");
+printf("_|_________\n\n");
+break;
+case 5:
+printf(" _______\n");
+printf(" |/   | \n");
+printf(" |    o \n");
+printf(" |   \\|/\n");
+printf(" |    | \n");
+printf(" |   / \\\n");
+printf("_|__________\n\n");
+break;
+case 6:
+printf(" ________\n");
+printf(" |/   |  \n");
+printf(" |    x  \n");
+printf(" |   \\|/\n");
+printf(" |    |   \n");
+printf("_|__________\n\n");
+break;
+}
+}
+int main()
+{
+char fs[6]="blast";
+char fr[8]="star";
+char fp[9]="exam";
+char s[6]="--a--";
+char r[8]="--a-";
+char p[9]="e-a-";
+clrscr();
+printf("WELCOME TO HANGMAN GAME\n");
+printf("INSTRUCTIONS:\n");
+printf("enter consonants in the missing letters\n");
+printf("YOU HAVE ONLY 6 CHANCES TO SAVE THE MAN FROM HANGING\n");
+game(fs,s);
+game(fr,r);
+game(fp,p);
+getch();
+return 0;
+}
